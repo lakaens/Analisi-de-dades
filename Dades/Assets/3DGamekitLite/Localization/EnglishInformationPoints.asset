@@ -15,7 +15,7 @@ MonoBehaviour:
   language: English
   phrases:
   - key: EX_ACID
-    value: start positionid uses a Box Collider set to 'Trigger' to check when Ellen
+    value: The Acid Prefab uses a Box Collider set to 'Trigger' to check when Ellen
       has fallen into it. The DeathVolume component will then force Ellen to respawn
       at her latest checkpoint
   - key: EX_PAD
