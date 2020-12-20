@@ -8,5 +8,5 @@ public class Grad : MonoBehaviour
     public Gradient gradient;
     public GradientColorKey[] colorKey;
     public GradientAlphaKey[] alphaKey;
-
+ 
 }

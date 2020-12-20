@@ -14,6 +14,7 @@ public class Grid : MonoBehaviour
     private TextMesh[,] debugTextArray;
     private Dictionary<Vector2, GameObject> cubes_heatmap;
     public GameObject grid_parent;
+    public int heatmap_type;
 
     float posx = 0.0f;
     float posy = 0.0f;
@@ -27,7 +28,7 @@ public class Grid : MonoBehaviour
         debugTextArray = new TextMesh[width, height];
         
         SetGrid();
-        SetCSVValues();
+        SetCSVValues(heatmap_type);
 
     
 
@@ -137,94 +138,254 @@ public class Grid : MonoBehaviour
 
     }
 
-    public void SetCSVValues()
+    public void SetCSVValues(int type)
     {
-
-        if (System.IO.File.Exists("Assets/CSV/positions.csv"))
+        if (type == 1)
         {
-
-            List<string> stringList = new List<string>();
-            List<string[]> parsedList = new List<string[]>();
-           // List<Vector3> pos_list = new List<Vector3>();
-
-            StreamReader str_reader = new StreamReader("Assets/CSV/positions.csv");
-            while (!str_reader.EndOfStream)
+            if (System.IO.File.Exists("Assets/CSV/positions.csv"))
             {
-                string line = str_reader.ReadLine();
-                stringList.Add(line);
 
-            }
-            str_reader.Close();
+                List<string> stringList = new List<string>();
+                List<string[]> parsedList = new List<string[]>();
+                // List<Vector3> pos_list = new List<Vector3>();
 
-            for (int i = 1; i < stringList.Count; i++)
-            {
-                string[] temp = stringList[i].Split(';');
-
-                for (int j = 0; j < temp.Length; j++)
+                StreamReader str_reader = new StreamReader("Assets/CSV/positions.csv");
+                while (!str_reader.EndOfStream)
                 {
-                    temp[j] = temp[j].Trim();
+                    string line = str_reader.ReadLine();
+                    stringList.Add(line);
 
-                    if (j == 3)
+                }
+                str_reader.Close();
+
+                for (int i = 1; i < stringList.Count; i++)
+                {
+                    string[] temp = stringList[i].Split(';');
+
+                    for (int j = 0; j < temp.Length; j++)
                     {
+                        temp[j] = temp[j].Trim();
 
-                        posx = float.Parse(temp[j]);
+                        if (j == 3)
+                        {
 
-                        //string[] aux = temp[j].Split(',');
+                            posx = float.Parse(temp[j]);
 
-
-                        //Vector3 pos = new Vector3
-                        //(
-                        //    (float)double.Parse(aux[0], CultureInfo.InvariantCulture.NumberFormat),
-                        //    (float)double.Parse(aux[1], CultureInfo.InvariantCulture.NumberFormat),
-                        //    (float)double.Parse(aux[2], CultureInfo.InvariantCulture.NumberFormat)
-                        //);
+                            //string[] aux = temp[j].Split(',');
 
 
+                            //Vector3 pos = new Vector3
+                            //(
+                            //    (float)double.Parse(aux[0], CultureInfo.InvariantCulture.NumberFormat),
+                            //    (float)double.Parse(aux[1], CultureInfo.InvariantCulture.NumberFormat),
+                            //    (float)double.Parse(aux[2], CultureInfo.InvariantCulture.NumberFormat)
+                            //);
 
-                        //SetValue(pos, GetValue(pos) + 5);
 
-                        //int x, y;
-                        //GetXY(pos, out x, out y);
-                        //UpdateHeatmap(x, y);
+
+                            //SetValue(pos, GetValue(pos) + 5);
+
+                            //int x, y;
+                            //GetXY(pos, out x, out y);
+                            //UpdateHeatmap(x, y);
+
+                        }
+
+                        if (j == 4)
+                        {
+                            posy = float.Parse(temp[j]);
+                        }
+
+                        if (j == 5)
+                        {
+                            posz = float.Parse(temp[j]);
+                        }
+
+                        Vector3 pos = new Vector3
+                        (
+                            posx,
+                            posy,
+                            posz
+                        );
+
+                        SetValue(pos, GetValue(pos) + 5);
+
+                        int x, y;
+                        GetXY(pos, out x, out y);
+                        UpdateHeatmap(x, y);
 
                     }
 
-                    if (j == 4)
-                    {
-                        posy = float.Parse(temp[j]);
-                    }
-
-                    if (j == 5)
-                    {
-                        posz = float.Parse(temp[j]);
-                    }
-
-                    Vector3 pos = new Vector3
-                    (
-                        posx,
-                        posy,
-                        posz
-                    );
-
-                    SetValue(pos, GetValue(pos) + 5);
-
-                    int x, y;
-                    GetXY(pos, out x, out y);
-                    UpdateHeatmap(x, y);
+                    parsedList.Add(temp);
 
                 }
 
-                parsedList.Add(temp);
+            }
+        }
+        else if (type == 2)
+        {
+            if (System.IO.File.Exists("Assets/CSV/deaths.csv"))
+            {
+
+                List<string> stringList = new List<string>();
+                List<string[]> parsedList = new List<string[]>();
+                // List<Vector3> pos_list = new List<Vector3>();
+
+                StreamReader str_reader = new StreamReader("Assets/CSV/deaths.csv");
+                while (!str_reader.EndOfStream)
+                {
+                    string line = str_reader.ReadLine();
+                    stringList.Add(line);
+
+                }
+                str_reader.Close();
+
+                for (int i = 1; i < stringList.Count; i++)
+                {
+                    string[] temp = stringList[i].Split(';');
+
+                    for (int j = 0; j < temp.Length; j++)
+                    {
+                        temp[j] = temp[j].Trim();
+
+                        if (j == 2)
+                        {
+
+                            posx = float.Parse(temp[j]);
+
+                            //string[] aux = temp[j].Split(',');
+
+
+                            //Vector3 pos = new Vector3
+                            //(
+                            //    (float)double.Parse(aux[0], CultureInfo.InvariantCulture.NumberFormat),
+                            //    (float)double.Parse(aux[1], CultureInfo.InvariantCulture.NumberFormat),
+                            //    (float)double.Parse(aux[2], CultureInfo.InvariantCulture.NumberFormat)
+                            //);
+
+
+
+                            //SetValue(pos, GetValue(pos) + 5);
+
+                            //int x, y;
+                            //GetXY(pos, out x, out y);
+                            //UpdateHeatmap(x, y);
+
+                        }
+
+                        if (j == 3)
+                        {
+                            posy = float.Parse(temp[j]);
+                        }
+
+                        if (j == 4)
+                        {
+                            posz = float.Parse(temp[j]);
+                        }
+
+                        Vector3 pos = new Vector3
+                        (
+                            posx,
+                            posy,
+                            posz
+                        );
+
+                        SetValue(pos, GetValue(pos) + 5);
+
+                        int x, y;
+                        GetXY(pos, out x, out y);
+                        UpdateHeatmap(x, y);
+
+                    }
+
+                    parsedList.Add(temp);
+
+                }
 
             }
-
-           
-
-
-
         }
+        else if (type == 3)
+        {
+            if (System.IO.File.Exists("Assets/CSV/hit.csv"))
+            {
+
+                List<string> stringList = new List<string>();
+                List<string[]> parsedList = new List<string[]>();
+                // List<Vector3> pos_list = new List<Vector3>();
+
+                StreamReader str_reader = new StreamReader("Assets/CSV/hit.csv");
+                while (!str_reader.EndOfStream)
+                {
+                    string line = str_reader.ReadLine();
+                    stringList.Add(line);
+
+                }
+                str_reader.Close();
+
+                for (int i = 1; i < stringList.Count; i++)
+                {
+                    string[] temp = stringList[i].Split(';');
+
+                    for (int j = 0; j < temp.Length; j++)
+                    {
+                        temp[j] = temp[j].Trim();
+
+                        if (j == 2)
+                        {
+
+                            posx = float.Parse(temp[j]);
+
+                            //string[] aux = temp[j].Split(',');
 
 
+                            //Vector3 pos = new Vector3
+                            //(
+                            //    (float)double.Parse(aux[0], CultureInfo.InvariantCulture.NumberFormat),
+                            //    (float)double.Parse(aux[1], CultureInfo.InvariantCulture.NumberFormat),
+                            //    (float)double.Parse(aux[2], CultureInfo.InvariantCulture.NumberFormat)
+                            //);
+
+
+
+                            //SetValue(pos, GetValue(pos) + 5);
+
+                            //int x, y;
+                            //GetXY(pos, out x, out y);
+                            //UpdateHeatmap(x, y);
+
+                        }
+
+                        if (j == 3)
+                        {
+                            posy = float.Parse(temp[j]);
+                        }
+
+                        if (j == 4)
+                        {
+                            posz = float.Parse(temp[j]);
+                        }
+
+                        Vector3 pos = new Vector3
+                        (
+                            posx,
+                            posy,
+                            posz
+                        );
+
+                        SetValue(pos, GetValue(pos) + 5);
+
+                        int x, y;
+                        GetXY(pos, out x, out y);
+                        UpdateHeatmap(x, y);
+
+                    }
+
+                    parsedList.Add(temp);
+
+                }
+
+            }
+        }
 
 
     }
@@ -254,11 +415,11 @@ public class Grid : MonoBehaviour
             //Fail
 
 
-            go = Instantiate(Resources.Load("_Prefabs/CubeHeatMap") as GameObject, new Vector3(x * cubeSize + cubeSize/2, 1, y * cubeSize + cubeSize / 2), Quaternion.identity);
+            go = Instantiate(Resources.Load("Prefabs/CubeHeatMap") as GameObject, new Vector3(x * cubeSize + cubeSize/2, 1, y * cubeSize + cubeSize / 2), Quaternion.identity);
             go.transform.SetParent(this.gameObject.transform);
             go.transform.localScale *= cubeSize;
             cubes_heatmap.Add(gridPos, go);
-            go.GetComponent<MeshRenderer>().material = Instantiate(Resources.Load("_Materials/HeatMapCube") as Material);
+            go.GetComponent<MeshRenderer>().material = Instantiate(Resources.Load("Materials/HeatMapCube") as Material);
 
             
 
