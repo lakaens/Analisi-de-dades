@@ -209,6 +209,7 @@
     <Compile Include="Assets\3DGamekitLite\Scripts\Game\Timeline\AudioSnapshot\AudioSnapshotMixerBehaviour.cs" />
     <Compile Include="Assets\3DGamekitLite\Scripts\Game\Helpers\ParticleDeactivator.cs" />
     <Compile Include="Assets\3DGamekitLite\Packages\Interactive\Runtime\Actions\PlayAnimation.cs" />
+    <Compile Include="Assets\HeatMap.cs" />
     <Compile Include="Assets\3DGamekitLite\Packages\DefaultPlayables\LightControl\LightControlBehaviour.cs" />
     <Compile Include="Assets\3DGamekitLite\Scripts\Game\Enemies\Grenadier\GrenadierSMBIdle.cs" />
     <Compile Include="Assets\3DGamekitLite\TutorialInfo\Scripts\Readme.cs" />
@@ -260,12 +261,10 @@
     <Compile Include="Assets\3DGamekitLite\Packages\SceneManagement\Runtime\SceneControllerWrapper.cs" />
     <Compile Include="Assets\3DGamekitLite\Scripts\Game\Core\InteractOnTrigger.cs" />
     <Compile Include="Assets\3DGamekitLite\Scripts\Game\Timeline\SceneReloader\SceneReloaderTrack.cs" />
-    <Compile Include="Assets\3DGamekitLite\Packages\DefaultPlayables\ScreenFader\ScreenFaderMixerBehaviour.cs" />
-    <Compile Include="Assets\Writer.cs" />
-    <Compile Include="Assets\EventData.cs" />
-    <Compile Include="Assets\EventHandler.cs" />
-    <Compile Include="Assets\HeatMap.cs" />
     <Compile Include="Assets\HeatMapCube.cs" />
+    <Compile Include="Assets\3DGamekitLite\Packages\DefaultPlayables\ScreenFader\ScreenFaderMixerBehaviour.cs" />
+    <Compile Include="Assets\Scripts\SavePositions.cs" />
+    <Compile Include="Assets\Scripts\EventsHandler.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\3DGamekitLite\Packages\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
