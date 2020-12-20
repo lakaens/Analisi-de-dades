@@ -87,6 +87,7 @@
     <Compile Include="Assets\3DGamekitLite\Scripts\Game\Utility\OpenURL.cs" />
     <Compile Include="Assets\3DGamekitLite\Packages\DefaultPlayables\NavMeshAgentControl\NavMeshAgentControlTrack.cs" />
     <Compile Include="Assets\3DGamekitLite\Packages\SceneManagement\Runtime\GameObjectTeleporter.cs" />
+    <Compile Include="Assets\Scripts\SavePositions.cs" />
     <Compile Include="Assets\3DGamekitLite\Scripts\Game\Utility\UIAutoscroll.cs" />
     <Compile Include="Assets\3DGamekitLite\Packages\Interactive\Runtime\Senders\SendOnCollisionEnter.cs" />
     <Compile Include="Assets\3DGamekitLite\Scripts\Game\Utility\SnapToGround.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="Assets\3DGamekitLite\Packages\Interactive\Runtime\Teleporter.cs" />
     <Compile Include="Assets\3DGamekitLite\Scripts\Game\Core\InteractionTrigger.cs" />
     <Compile Include="Assets\3DGamekitLite\Scripts\Game\UI\StartUI.cs" />
+    <Compile Include="Assets\Scripts\EventsHandler.cs" />
     <Compile Include="Assets\3DGamekitLite\Scripts\Effects\WaterRipple.cs" />
     <Compile Include="Assets\3DGamekitLite\Scripts\Game\DamageSystem\Damageable.DamageMessage.cs" />
     <Compile Include="Assets\3DGamekitLite\Packages\SceneManagement\Runtime\IDataPersister.cs" />
@@ -263,8 +265,9 @@
     <Compile Include="Assets\3DGamekitLite\Scripts\Game\Timeline\SceneReloader\SceneReloaderTrack.cs" />
     <Compile Include="Assets\HeatMapCube.cs" />
     <Compile Include="Assets\3DGamekitLite\Packages\DefaultPlayables\ScreenFader\ScreenFaderMixerBehaviour.cs" />
-    <Compile Include="Assets\Scripts\SavePositions.cs" />
-    <Compile Include="Assets\Scripts\EventsHandler.cs" />
+    <Compile Include="Assets\Scripts\Grid.cs" />
+    <Compile Include="Assets\Scripts\Grad.cs" />
+    <Compile Include="Assets\Scripts\NewHeatMap.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\3DGamekitLite\Packages\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
